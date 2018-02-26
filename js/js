@@ -1,5 +1,0 @@
-console.log("hello");
-var now = moment();
-moment.locale('fr');
-moment().format( '  Do MMMM  YYYY');
-console.log("moment");	
