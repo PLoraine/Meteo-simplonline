@@ -1,5 +1,5 @@
 var lon, lat;
-
+var city;
 moment.locale('fr');
 $('#date').append(moment().format('LL'));
 
@@ -14,6 +14,7 @@ $("#buton").click(function() {
                 console.log(data);
                 lon = data.coord.lon;
                 lat = data.coord.lat;
+                city = data.name;
                 carte();
                 $('#cadre').html("<p> Le nom de la ville est :" + data.name + "</p>")
                     .append("<p>l'humidité est de " + data.main.humidity + "</p>")
@@ -32,7 +33,7 @@ $("#buton").click(function() {
     }
 });
 
-function carte() {
+function carte(){
 
     console.log(lon, lat)
     var ll = [lat, lon]
@@ -45,7 +46,5 @@ function carte() {
     var marker = L.marker(ll).addTo(map);
 
     // ajout d'un popup
-    marker.bindPopup("<h3>Pamiers,France</h3>");
+    marker.bindPopup(city);
 }
-
-// condition si #cadre === map alors
