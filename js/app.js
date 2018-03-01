@@ -27,4 +27,15 @@ $("#buton").click(function(){
 		$("#error").html('le champ ne peux pas être vide')
 	}
 });
-	
+
+var ll= [43.114753,1.6079529999999522]
+ var map = L.map('map').setView(ll,15)
+ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+ 	maxZoom:20
+ }).addTo(map);
+
+ //ajout d'un markeur
+ var marker = L.marker(ll).addTo(map);
+
+ // ajout d'un popup
+ marker.bindPopup("<h3>Pamiers,France</h3>");
