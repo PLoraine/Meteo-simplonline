@@ -3,9 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Développer une solution numérique responsive et dynamique !</title>
+	<link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css">
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	
 </head>
 <body>
 	<h1>Météo</h1>
@@ -14,9 +16,11 @@
 		<button id="buton">valider</button>
 		<span id="error"></span>
 	</div>
-	<div id="cadre">
-	</div>
+	<div id="cadre"></div>
 	<div id="date"></div>
+	<div id="map"></div>
+
+	<script src="node_modules/leaflet/dist/leaflet.js"></script>
 	<script src="node_modules/moment/min/moment-with-locales.min.js"></script>
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
