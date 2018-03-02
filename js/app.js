@@ -1,50 +1,37 @@
 var lon, lat;
 var city;
 moment.locale('fr');
-$('#date').append(moment().format('LL'));
+$('#date').append(moment().format("<p>" + 'LL' + "</p>"));
 
 $("#buton").click(function() {
     var valinput = $("#text").val();
     console.log(valinput);
-    if (valinput != '') {
-        $.ajax({
-            url: 'http://api.openweathermap.org/data/2.5/weather?q=' + valinput + "&units=metric" + "&appid=e488227e348fab4707b37ef061ad3c4a",
-
-            success: function(data) {
-                console.log(data);
-                lon = data.coord.lon;
-                lat = data.coord.lat;
-                city = data.name;
-                carte();
-                $('#cadre').html("<p> Le nom de la ville est :" + data.name + "</p>")
-                    .append("<p>l'humidité est de " + data.main.humidity + "</p>")
-                    .append("<p>La température est de :" + data.main.temp + "</p>")
-                    .append("<p>La pression atmosphérique est de :" + data.main.pressure + "</p>")
-                    .append("<p>La température min est de : " + data.main.temp_min + "</p>")
-                    .append("<p>La température max est de : " + data.main.temp_max + "</p>")
-                    .append("<p>La latitude est de : " + lat + "</p>")
-                    .append("<p>La longitude est de : " + lon + "</p>")
-                    .append("<p>La vitesse du vent est de :" + data.wind.speed + "</p>");
-            }
-        });
-
-    } else {
-        $("#error").html('le champ ne peux pas être vide')
-    }
+    $.ajax({
+        url: 'http://api.openweathermap.org/data/2.5/weather?q=' + valinput + '&units=metric&appid=e488227e348fab4707b37ef061ad3c4a',
+        dataType: "json",
+        success: function(data) {
+            console.log(data);
+            lon = data.coord.lon;
+            lat = data.coord.lat;
+            city = data.name;
+            
+            $('#cadre').html("<li>Temp.max : " + data.main.temp_max + "°</li>")
+                .append("<li>Temp.min: " + data.main.temp_min + "°</li>")
+                .append("<li>Pres.atmosphérique :" + data.main.pressure + "</li>")
+                .append("<li>Vitesse du vent est de :" + data.wind.speed + "km/h</li>")
+                .append("<li>Humidité est de " + data.main.humidity + "%</li>")
+                .append("<li>La latitude est de : " + lat + "</li>")
+                .append("<li>La longitude est de : " + lon + "</li>");
+                $('#map').html("<iframe width='100%' heigth='100%' src='https://www.google.com/maps/embed/v1/view?key=AIzaSyBZ-mRs0nlafD2fmwIMcaUyRtQo3G5GvrU&center=" + lat + "," + lon + "&zoom=11&maptype=satellite'></iframe>");
+                $('#temp').text( + parseInt(data.main.temp)+ "°");
+            
+        }
+    });
 });
 
-function carte(){
 
-    console.log(lon, lat)
-    var ll = [lat, lon]
-    var map = L.map('map').setView(ll, 15)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 20
-    }).addTo(map);
 
-    //ajout d'un markeur
-    var marker = L.marker(ll).addTo(map);
 
-    // ajout d'un popup
-    marker.bindPopup(city);
-}
+/// si je j'entre un mot dans l'input et que je clique sur le bouton valider je veu 
+// ajout d'un mécanisme pour refraiche la carte suivant la première recherche
+// compatibilité avec les navigateur tous
