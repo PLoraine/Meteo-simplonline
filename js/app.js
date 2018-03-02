@@ -7,7 +7,7 @@ $("#buton").click(function() {
     var valinput = $("#text").val();
     console.log(valinput);
     $.ajax({
-        url: 'http://api.openweathermap.org/data/2.5/weather?q=' + valinput + '&units=metric&appid=e488227e348fab4707b37ef061ad3c4a',
+        url: 'https://api.openweathermap.org/data/2.5/weather?q=' + valinput + '&units=metric&appid=e488227e348fab4707b37ef061ad3c4a',
         dataType: "json",
         success: function(data) {
             console.log(data);
