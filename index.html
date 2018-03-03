@@ -2,68 +2,71 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Développer une solution numérique responsive et dynamique !</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Développer une solution numérique responsive et dynamique !</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css">
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <!-- <div id="formulaire" class="container">
-    	<div class="row">
-        <input id="text" type="text" value="Pamiers">
-        <button id="buton">valider</button>
-        <div id="date"></div>
-    </div>
-
-        <div class="row">
-        <div class="col-6 offset-md-4">
-            <div id="temp"></div>
-        </div>
-   
-        <div class="col-6 offset-md-4">
-        </div>
-            <div id="cadre"></div>
-        </div>
-    </div>
-    <div id="map" class="offset-md-3">
-    </div> -->
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <input id="text" type="text" value="Pamiers">
-                <div id="container_buton">
-                	<button id="buton">valider</button>
-                </div>
-                <div id="date"></div>
-            </div>
-        </div>
-
-        <div class="row" >
-        	
-            <div class="col">
-            </div>
-        </div>
-
-        <div class="row" id="temperature">
-        	
-            <div class="col-6 col-sm-3">
-                <div id="temp"></div>
-            </div>
-            <div class="col-6 col-sm-3">
-                <div id="cadre"></div>
-            </div>
-        	</div>
-
-            <div id="mapi">
-            	<div id="map">
-            </div>
-            </div>
-        <script src="node_modules/jquery/dist/jquery.min.js"></script>
-        <script src="node_modules/leaflet/dist/leaflet.js"></script>
-        <script src="node_modules/moment/min/moment-with-locales.min.js"></script>
-        <script type="text/javascript" src="js/app.js"></script>
+	<div class="container">
+		<div class="row justify-content-md-center">
+			<div class="col-md-auto">
+				<input id="text" class="border" type="text" value="Pamiers">
+				<div class="container_buton d-flex justify-content-center">
+					<button id="buton" class="btn btn-defaut">valider</button>
+				</div>
+				<div class="date_content d-flex justify-content-center" id="date"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6 col-sm-12  d-flex justify-content-center">
+				<span class="temperature">7°</span>
+			</div>
+			<div class="col-lg-6 col-sm-12 meteo-container">
+				<div class="info-meteo">
+					Temp.max :
+					<span id="temp_max"></span>
+				</div>
+				<div class="info-meteo">
+					Temp.min: 
+					<span id="temp_min"></span>
+				</div>
+				<div class="info-meteo">
+					Press.atmospherique:
+					<span id="press-at"></span>
+				</div>
+				<div class="info-meteo">
+					Vitesse du vent:
+					<span id="vit-vent"></span>
+				</div>
+				<div class="info-meteo">
+					Humidité :
+					<span id="humidite"></span>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 map-container">
+				<div class="info-map">
+					Longitude :
+					<span id="lon"></span>
+				</div>
+				<div class="info-map">
+					Latitude :
+					<span id="lat"></span>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div id="map"></div>
+			</div>
+		</div>
+	</div>
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="node_modules/leaflet/dist/leaflet.js"></script>
+	<script src="node_modules/moment/min/moment-with-locales.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
 </body>
-
 </html>

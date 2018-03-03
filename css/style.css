@@ -2,92 +2,65 @@ body, html{
 
 	background-color:  #00796B;
 }
-p{
-	font-family: Roboto; 
+*{
+	font-family: 'Roboto', sans-serif; 
+}
+#map{
+	width: 80vw;
+	height: 50vh;
+	margin: 2em 0;
+}
+.border{
+	margin-top: 3em; 
+	width: 70vh;
+	background-color: transparent;
+	color: white;
+	border:0 !important;
+	border-bottom: 1px solid white !important;
+	padding-left: 1em;
 }
 
-.row {
-	text-align: center;
+.container_buton{
+	margin-top: 10px;
 }
 
 #buton{
-	border-radius: 40px;
-	color: #00796B;
 	background-color: #fff;
-	
-
-
-}
-#container_buton{
-	margin-top:2vh;
-	width: 100%;
-}
-.col{
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	flex-wrap: wrap;
-}
-#temperature{
-	    display: flex;
-    justify-content: center;
-    align-items: center;
+	width: 75px;
+	border-radius: 25px;
+	padding: 0;
+	color: #00796B;
+	margin:3em 0;
 }
 
-#text{
-	text-align: center;
-	border-top: none;
-	border-left: none;
-	border-right: none;
-	border-color: #F3F2F1; 
-	background-color:#00796B;
+.date_content{
+	color: rgba(255,255,255,0.3);
+	font-size: 30px;
+}
+.temperature{
+	font-size: 130px;
+}
+.info-meteo, .info-map, .temperature{
+	color: #fff;
 }
 
-#formulaire{
+.meteo-container{
 	display:flex;
 	justify-content: center;
-	vertical-align: column;
+	flex-direction: column;
 }
-
-#date{
-	margin-top: 20px;
-	text-align: center;
+.info-meteo{
+	align-self: center;
+	width: 30%;
+	text-align: left;
 	font-size: 20px;
 }
 
-#mapi {
-
- display: flex;
- justify-content:center;
- align-items: center;
+.map-container{
+	display:flex;
+	flex-direction: row;
 }
 
-#map{
-	width: 300px;
-	height: 300px;
-	
-}
-
-li, p {
-	color: white;
-	list-style-type:none;
-}
-
-#temp{
-	font-size: 150px;
-	color: white;
-	width: 200px;
-}
-
-
-@media screen and (max-width: 640px){
-	#temp{
-		text-align: left;
-	}
-}
-.container{
-	text-align: center;
-}
-li{
-	text-align: start;
+.info-map{
+	margin-right: 2em;	
 }
